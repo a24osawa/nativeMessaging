@@ -1,0 +1,17 @@
+{
+  // Extension ID: mccdokabddmikcolpoinpmebpdldifoo
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyJ2EWpyvW2w+6KE0GzpDvFvTmVCTMrWbIOXsFXdKNGuq5xr6C2b5dkzrHgCZwvinMX7v9p2Q0IjG0yb3PVv4KM1X4vLfwQgl/dNtfsdq/mf8kpq1cuWMa5KqOxRDuquB+3oniC3ds9qjHVufuWLXIZ6f0QlkE2RYxEVA55ulfvrQP8xO81jrHIipt29BKib0DOroMekmJxuIXUHJ51/9iIvWa/dDjdLLPJF5CLObRNt+k9LA6YUL8D9k1waFRVs3gRLZ3I/prrSNco1jgA4Q4b45fI6jN/tjTp+Njb9t0JBu05u60nx8Iws1c1OtNXyU+hwgkeG8kWxVJMPQvYMtfQIDAQAB",
+  "name": "Native Messaging Loopback with MV3",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "Loopback a message from/to a native application.",
+  "background": {
+    "page": "background.html"
+  },
+  "icons": {
+    "128": "icon-128.png"
+  },
+  "permissions": [
+    "nativeMessaging"
+  ]
+}
