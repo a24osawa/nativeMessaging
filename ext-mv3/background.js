@@ -4,43 +4,31 @@
 
 var port = null;
 
-var getKeys = function(obj){
-   var keys = [];
-   for(var key in obj){
-      keys.push(key);
-   }
-   return keys;
-}
-
-
-function appendMessage(text) {
-  document.getElementById('response').innerHTML += "<p>" + text + "</p>";
-}
-
 function sendNativeMessage(text) {
+  console.log("sendNativeMessage()");
   message = {"text": text};
   port.postMessage(message);
-  appendMessage("Sent message: <b>" + JSON.stringify(message) + "</b>");
 }
 
 function onNativeMessage(message) {
-  appendMessage("Received message: <b>" + JSON.stringify(message) + "</b>");
+  console.log("onNativeMessage()");
   sendNativeMessage(message.text);
 }
 
 function onDisconnected() {
-  appendMessage("Failed to connect: " + chrome.runtime.lastError.message);
+  console.log("onDisconnected()");
   port = null;
 }
 
 function connect() {
+  console.log("connect()");
   var hostName = "com.google.chrome.example.echo.mv3";
-  appendMessage("Connecting to native messaging host <b>" + hostName + "</b>")
   port = chrome.runtime.connectNative(hostName);
   port.onMessage.addListener(onNativeMessage);
   port.onDisconnect.addListener(onDisconnected);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+chrome.runtime.onInstalled.addListener(({ reason, version }) => {
+  console.log("Event.addListener()");
   connect();
 });
