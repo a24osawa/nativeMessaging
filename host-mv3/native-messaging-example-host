@@ -10,6 +10,7 @@ import struct
 import sys
 import threading
 import queue
+import time
 
 try:
   import tkinter
@@ -76,6 +77,13 @@ if tkinter:
       self.sendButton.grid(row=1, column=1, padx=10, pady=10)
 
       self.after(100, self.processMessages)
+      self.after(2000, self.autoSendMessage)
+
+    def autoSendMessage(self):
+      now = time.strftime("%H:%M:%S")
+      self.messageContent.set(now)
+      self.onSend()
+      self.after(2000, self.autoSendMessage)
 
     def processMessages(self):
       while not self.queue.empty():
