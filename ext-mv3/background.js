@@ -9,10 +9,10 @@ chrome.runtime.onInstalled.addListener(({ reason, version }) => {
   connect();
 });
 
-chrome.windows.onCreated.addListener(({ object}) => {
-  console.log("chrome.windows.onCreated");
+chrome.management.onEnabled.addListener(() => {
+  console.log("chrome.management.onEnabled");
   connect();
-});
+})
 
 function sendNativeMessage(text) {
   console.log("sendNativeMessage()");
